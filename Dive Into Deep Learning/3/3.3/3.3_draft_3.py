@@ -1,0 +1,18 @@
+import torch
+
+a = torch.arange(9).reshape(3, 3)
+print('storage of a:\n', a.storage())
+print('+' * 60)
+b = a.permute(1, 0)
+print('size of b:', b.size())
+print('stride of b:', b.stride())
+c = b.reshape(9)
+print('viewd b:\n', c)
+print('+' * 60)
+print('storage of a:', a.storage())
+print('storage of b:', b.storage())
+print('storage of c:', c.storage())
+print('+' * 60)
+print('ptr of a:\n', a.storage().data_ptr())
+print('ptr of b:\n', b.storage().data_ptr())
+print('ptr of c:\n', c.storage().data_ptr())
